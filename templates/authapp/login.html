@@ -1,0 +1,75 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Home {% endblock %} 
+
+{% block css %}
+<style>
+  .login-div {
+    max-width: 500px;
+  }
+</style>
+{% endblock %} 
+
+{% block content %} 
+{% include 'layouts/navbar.html' %}
+  <div class="px-2">
+    <div class="container mt-5 p-4 rounded shadow login-div">
+      <h2>Login</h2>
+      <hr />
+  
+      {% if messages %}
+        <div class="alert alert-danger" role="alert">
+          {% for message in messages %}
+            {{ message }} <br />
+          {% endfor %}
+        </div>
+      {% endif %}
+  
+      <form method="POST" action="" class="mt-3">
+        {% csrf_token %}
+        <div class="mb-1 mb-lg-3">
+          <label for="username" class="form-label"> Username </label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            placeholder="Username"
+          />
+        </div>
+  
+        {% comment %}
+        <div class="mb-1 mb-lg-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Email"
+          />
+        </div>
+        {% endcomment %}
+  
+        <div class="mb-1 mb-lg-3">
+          <label for="password" class="form-label"> Password </label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
+        </div>
+  
+        <button type="submit" class="btn btn-primary mt-2">Login</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+<script>
+  console.log("test")
+</script>
+{% endblock %}

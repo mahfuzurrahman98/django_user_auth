@@ -35,7 +35,7 @@ def login(request):
             return redirect('home')
         else:
             messages.error(request, 'Invalid credentials')
-            return redirect('/authapp/login')
+            return redirect('login')
 
     elif request.method == 'GET':
         return render(request, 'authapp/login.html')
@@ -82,7 +82,9 @@ def register(request):
             for field, errors in form.errors.items():
                 for error in errors:
                     messages.error(request, f'{field}: {error}')
-            return redirect('/authapp/register')
+            print(messages.error)
+            return redirect('register')
+
 
     elif request.method == 'GET':
         return render(request, 'authapp/register.html')

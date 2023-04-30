@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {% block title %} {% if title %} {{ title }} {% endif %} {% endblock %} |
+      Django User Auth
+    </title>
+    <link
+      href="{% static 'css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+
+    <style>
+      #app {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh !important;
+      }
+    </style>
+
+    {% block css %} {% endblock %}
+  </head>
+  <body>
+    <div id="app">
+      {% block content %} {% endblock %}
+
+      <footer class="mt-auto">
+        <div class="py-3 text-center border-top border-1 border-muted">
+          Django User Auth @2023
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="{% static 'js/bootstrap.bundle.min.js' %}"
+    ></script>
+
+    {% block js %}{% endblock %}
+  </body>
+</html>

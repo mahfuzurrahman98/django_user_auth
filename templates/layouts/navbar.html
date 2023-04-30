@@ -1,0 +1,17 @@
+<nav class="navbar navbar-dark navbar-expand-lg navbar-light bg-dark px-md-3">
+  <div class="container-fluid d-flex justify-content-between">
+    <a class="navbar-brand" href="#">Django User Auth</a>
+
+    <div>
+      {% if user.is_authenticated %}
+      <form action="auth/logout/" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Logout</button>
+      </form>
+      {% else %}
+      <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+      <a href="{% url 'register' %}" class="btn btn-success">Register</a>
+      {% endif %}
+    </div>
+  </div>  
+</nav>
